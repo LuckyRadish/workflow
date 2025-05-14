@@ -18,7 +18,7 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Run `pm2 list` command as root and send logs
+      - name: Run `pm2 list` command as root and post logs
         run: |
           # Connect to the remote server via SSH and run the command
           LOGS=$(ssh -o StrictHostKeyChecking=no ubuntu@168.231.64.56 "sudo su -c 'source ~/.bashrc && source ~/.nvm/nvm.sh && pm2 list'")
