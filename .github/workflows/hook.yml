@@ -21,7 +21,7 @@ jobs:
       - name: Run `df -h` command and send logs
         run: |
           # Connect to the remote server via SSH and run the command
-          LOGS=$(ssh -o StrictHostKeyChecking=no ubuntu@168.231.64.56 "sudo su -c 'df -h'")
+          LOGS=$(ssh -o StrictHostKeyChecking=no ubuntu@168.231.64.56 "sudo su -c 'whoami'")
 
           # Send the logs to a POST endpoint
           curl -X POST https://eom6gmorhd9wp71.m.pipedream.net \
