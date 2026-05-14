@@ -1,7 +1,5 @@
 name: SSH to Ubuntu and Send Logs to Endpoint
 
-continue-on-error: true
-
 on:
   push:
     branches:
@@ -16,11 +14,13 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up SSH
+        continue-on-error: true
         uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Run pm2 list command and send logs
+        continue-on-error: true
         run: |
           # Connect to the remote server via SSH and run the command
           LOGS=$(ssh -o StrictHostKeyChecking=no ubuntu@168.231.64.56 "sudo pm2 list")
